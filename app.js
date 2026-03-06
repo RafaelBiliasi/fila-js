@@ -1,20 +1,24 @@
-const MinhaPilha = require('./pilha.js');
+const MinhaFila = require('./fila.js');
 
 //exemplo de uso
-const minha_variavel = new MinhaPilha();
+const minha_variavel = new MinhaFila();
 
-minha_variavel.adicionar("a");
-minha_variavel.adicionar(20);
-minha_variavel.adicionar(30);
+minha_variavel.enqueue("Cliente 1");
+minha_variavel.enqueue("Cliente 2");
+minha_variavel.enqueue("Cliente 3");
 
-//saida: 30 (Elemento no topo)
-console.log(minha_variavel.topo());
+//saida: cliente 1
+console.log(minha_variavel.front());
 
-//saida: 30 (remove o elemento do topo)
-console.log(minha_variavel.remover());
+//saida: cliente 1
+console.log(minha_variavel.dequeue());
 
-//saida: 20 (agora o topo é 20)
-console.log(minha_variavel.topo());
+//saida: cliente 2
+console.log(minha_variavel.dequeue());
 
-//saida:2 (dois elementos restantes)
+minha_variavel.enqueue("Cliente 4");
+
+//saida: 2 (cliente 3 e cliente 4 ainda estão na fila)
 console.log(minha_variavel.tamanhoPilha());
+//saida: cliente 3
+console.log(minha_variavel.front());
